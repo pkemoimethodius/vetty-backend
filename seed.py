@@ -492,8 +492,8 @@ def create_service_data():
     ]
 
     # Insert services into the database
-    for services in Service:
-        db.session.add(services)
+    for service in services:
+        db.session.add(service)
 
     # Commit changes to the database
     db.session.commit()
