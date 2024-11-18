@@ -26,5 +26,5 @@ def hello():
     return "Hello, Welcome to the Flask API!"
 
 
-if __name__ == '__main__':
-     app.run(host='0.0.0.0',port =5555 ,debug=False)
+if __name__ == "__main__":
+    app.run(port=5000, host='0.0.0.0', debug=False)
