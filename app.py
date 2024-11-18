@@ -323,5 +323,13 @@ def get_all_services():
 
 
 
+# if __name__ == "__main__":
+#     app.run(port=5000, host='0.0.0.0', debug=False)
+
 if __name__ == "__main__":
-    app.run(port=5000, host='0.0.0.0', debug=False)
+    # Get the port from the environment variable or default to 5000
+    import os
+    port = int(os.environ.get("PORT", 5000))
+
+    # Make sure the app is listening on all interfaces (0.0.0.0) for cloud deployments
+    app.run(host='0.0.0.0', port=port, debug=False)
