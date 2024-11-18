@@ -295,6 +295,33 @@ def get_all_reviews():
 
     return jsonify(reviews_data)
 
+@app.route('/services', methods=['GET'])
+def get_all_services():
+    print("Fetching all services...")  # Debugging line
+
+    # Query all services from the database
+    services = Service.query.all()
+
+    # If no services are found
+    if not services:
+        return jsonify({"message": "No services found."}), 404
+
+    # Constructing the response data
+    services_data = [
+        {
+            'id': service.id,
+            'service_type': service.service_type,
+            'name': service.name,
+            'description': service.description,
+            'price': service.price,
+            'image_url': service.image_url
+        }
+        for service in services
+    ]
+
+    return jsonify(services_data), 200
+
+
 
 if __name__ == "__main__":
     app.run(port=5000, host='0.0.0.0', debug=False)
