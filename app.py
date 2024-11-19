@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 # from models import db, Service
 from models import Customer, Location, Product, Review, Service
 from db import db
+from flask_cors import CORS
 
 
 
@@ -11,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///vetty.db'  # SQLite for simplicity, or your database URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disables track modifications (optional)
 app.config['SQLALCHEMY_ECHO'] = True  # Optional: Prints SQL statements for debugging
-
+CORS(app)
 db.init_app(app)
 # db = SQLAlchemy(app)
 
